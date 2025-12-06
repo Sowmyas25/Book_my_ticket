@@ -14,5 +14,7 @@ public interface UserService {
 
 	String login(LoginDto dto, RedirectAttributes attributes,HttpSession session);
 
+	String logout(HttpSession session, RedirectAttributes attributes);
+
 
 }
