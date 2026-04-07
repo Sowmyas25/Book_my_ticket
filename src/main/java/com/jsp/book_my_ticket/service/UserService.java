@@ -1,14 +1,18 @@
 package com.jsp.book_my_ticket.service;
 
+import java.io.IOException;
+
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.jsp.book_my_ticket.dto.LoginDto;
 import com.jsp.book_my_ticket.dto.PasswordDto;
+import com.jsp.book_my_ticket.dto.TheaterDto;
 import com.jsp.book_my_ticket.dto.UserDto;
 
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 
 public interface UserService {
 	
@@ -31,4 +35,11 @@ public interface UserService {
 	String blockUser(Long id,HttpSession session, RedirectAttributes attributes);
 
 	String unBlockUser(Long id, HttpSession session, RedirectAttributes attributes);
+	
+	String manageTheater(ModelMap map, RedirectAttributes attributes, HttpSession session);
+
+	String loadAddTheater(HttpSession session,RedirectAttributes attributes, TheaterDto theaterDto);
+
+	String addTheater(HttpSession session, RedirectAttributes attributes, @Valid TheaterDto theaterDto,
+			BindingResult result) throws IOException;
 }
